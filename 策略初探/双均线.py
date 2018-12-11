@@ -69,7 +69,7 @@ class Strategy(object):
                 benchmark_list.append(float(df[df['date'] == date]['close']))
         return benchmark_list
 
-    # 获取当前持有的市值
+    # 获取当前持有的市�?
     def get_market_value(self, date):
         market_value = 0
         df = self.df
@@ -106,11 +106,11 @@ class Strategy(object):
             buy_open_price = df.iloc[1]['open']
         return buy_signal, buy_open_price
 
-    # 获取卖出的数量
+    # 获取卖出的数�?
     def get_sell_amount(self):
         return self.position
 
-    # 获取买入的数量
+    # 获取买入的数�?
     def get_buy_amount(self, price):
         if self.position == 0:
             amount = math.floor(self.init_cash / price)
@@ -118,7 +118,7 @@ class Strategy(object):
         else:
             return 0
 
-    # 设置手续费
+    # 设置手续�?
     def cal_cost_function(self, price, amount):
         commission = price * amount * 0.0002
         if commission > 5:
@@ -130,9 +130,9 @@ class Strategy(object):
 
 
 if __name__ == '__main__':
-    conn = MongoClient('192.168.1.97', 27017)
-    db = conn['bitmex_kline']
-    my_set = db['XBTUSD_1d']
+    conn = MongoClient('0.0.0.0', 27017)
+    db = conn['db_name']
+    my_set = db['set_name']
     close_time = []
     close_price = []
     open_price = []
